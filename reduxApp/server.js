@@ -10,6 +10,5 @@ app.get('/', function(req, res){
 'public', 'index.html'))
 });
 app.listen(3000, function(){
- console.log('App web-server listening on
-port 3000');
+console.log("Listening on 3000")
 });
