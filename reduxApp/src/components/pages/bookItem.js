@@ -5,15 +5,33 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 import {addToCart} from '../../actions/cartActions';
 class BookItem extends React.Component{
- handleCart(){
- const book = [...this.props.cart, {
- id:this.props.id,
- title:this.props.title,
- description:this.props.description,
- price:this.props.price
+  handleCart(){
+    const book = [...this.props.cart, {
+      id:this.props.id,
+      title:this.props.title,
+      description:this.props.description,
+      price:this.props.price,
+      quantity:1
  }]
+    if(this.props.cart.length > 0) {
+ // CART IS NOT EMPTY
+ let _id = this.props._id;
+ let cartIndex = this.props.cart.findIndex(function(cart){
+   return cart._id === _id;
+ })
+ // IF RETURNS -1 THERE ARE NO ITEMS WITH SAME ID
+
+ if (cartIndex === -1){
+ this.props.addToCart(book);
+ } else {
+ // WE NEED TO UPDATE QUANTITY
+ this.props.updateCart(_id, 1)
+ }
+ } else {
+ // CART IS EMPTY
  this.props.addToCart(book);
  }
+}
  render(){
  return(
  <Well>

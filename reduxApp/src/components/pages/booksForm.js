@@ -25,31 +25,19 @@ findDOMNode(this.refs.price).value,
  <FormGroup controlId="title">
 
 <ControlLabel>Title</ControlLabel>
- <FormControl
- type="text"
- placeholder="Enter Title"
- ref="title" />
+ <FormControl type="text" placeholder="Enter Title" ref="title" />
  </FormGroup>
  <FormGroup controlId="description">
 
 <ControlLabel>Description</ControlLabel>
- <FormControl
- type="text"
- placeholder="Enter
-Description"
- ref="description" />
+ <FormControl type="text" placeholder="Enter Description" ref="description" />
  </FormGroup>
  <FormGroup controlId="price">
 
 <ControlLabel>Price</ControlLabel>
- <FormControl
- type="text"
- placeholder="Enter Price"
- ref="price" />
+ <FormControl type="text" placeholder="Enter Price" ref="price" />
  </FormGroup>
- <Button
-onClick={this.handleSubmit.bind(this)}
-bsStyle="primary">Save book</Button>
+ <Button onClick={this.handleSubmit.bind(this)} bsStyle="primary">Save book</Button>
  </Panel>
  </Well>
  )

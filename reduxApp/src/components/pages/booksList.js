@@ -37,15 +37,15 @@ this.props.books.map(function(booksArr){
   })
   return(
     <Grid>
-  <Row>
+        <Row>
   <Cart />
-  </Row>
-   <Row>
-   <Col xs={12} sm={6}>
+        </Row>
+        <Row>
+      <Col xs={12} sm={6}>
    <BooksForm />
-   </Col>
+      </Col>
    {booksList}
-   </Row>
+        </Row>
    </Grid>
    )
    }
