@@ -2,6 +2,11 @@
 // POST A BOOK
 export function getBooks(book){
  return {
+ type:"GET_BOOK"
+ }
+}
+export function postBooks(book){
+ return {
  type:"POST_BOOK",
  payload: book
  }

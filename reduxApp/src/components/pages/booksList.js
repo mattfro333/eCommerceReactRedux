@@ -9,22 +9,9 @@ import BooksForm from './booksForm';
 import Cart from './cart'
 
 class BooksList extends React.Component{
- componentDidMount(){
- this.props.getBooks(
- [{
- id: 1,
- title:'Learn Redux in 24hr',
- description: 'this is the book description',
- price: 43.33
- },
- {
- id: 2,
- title:'Learn React in 24hr',
- description: 'this is the second book description',
- price: 60
- }]
- )
- }
+  componentDidMount(){
+    this.props.getBooks();
+  }
  render(){
  const booksList =
 this.props.books.map(function(booksArr){

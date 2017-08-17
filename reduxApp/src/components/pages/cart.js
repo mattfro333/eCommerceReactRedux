@@ -1,39 +1,33 @@
 "use strict"
 import React from 'react';
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import {Panel, Col, Row, Well, Button, ButtonGroup, Label} from 'react-bootstrap';
 import {addToCart, deleteCartItem, updateCart} from '../.././actions/cartActions';
 class Cart extends React.Component{
   onDelete(_id){
  // Create a copy of the current array of books
- const currentBookToDelete =
-this.props.cart;
+ const currentBookToDelete = this.props.cart;
  // Determine at which index in books array is the book to be deleted
- const indexToDelete =
-currentBookToDelete.findIndex(
+ const indexToDelete = currentBookToDelete.findIndex(
  function(cart){
- return cart._id === _id;
- }
+   return cart._id === _id;
+  }
  )
  //use slice to remove the book at the specified index
- let cartAfterDelete =
-[...currentBookToDelete.slice(0,
-indexToDelete),
-...currentBookToDelete.slice(indexToDelete +
-1)]
+ let cartAfterDelete = [...currentBookToDelete.slice(0, indexToDelete), ...currentBookToDelete.slice(indexToDelete + 1)]
 
-this.props.deleteCartItem(cartAfterDelete);
+  this.props.deleteCartItem(cartAfterDelete);
  }
  onIncrement(_id){
- this.props.updateCart(_id, 1);
+   this.props.updateCart(_id, 1);
  }
  onDecrement(_id, quantity){
- if(quantity > 1){
- this.props.updateCart(_id, -1);
- }
+   if(quantity > 1){
+     this.props.updateCart(_id, -1);
+  }
  }
   render(){
-
     if(this.props.cart[0]){
       return this.renderCart();
     } else {
@@ -69,7 +63,7 @@ this.props.deleteCartItem(cartAfterDelete);
     </Row>
   </Panel>
  )
- })
+ }, this)
  return(
  <Panel header="Cart" bsStyle="primary">
  {cartItemsList}
@@ -86,6 +80,6 @@ function mapDispatchToProps(dispatch){
   return bindActionCreators({
     deleteCartItem:deleteCartItem,
     updateCart:updateCart
-  })
+  }, dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);

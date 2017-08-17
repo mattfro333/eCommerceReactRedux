@@ -5,18 +5,15 @@ ControlLabel, Button} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {findDOMNode} from 'react-dom';
-import {getBooks} from '../../actions/booksActions';
+import {postBooks} from '../../actions/booksActions';
 class BooksForm extends React.Component{
  handleSubmit(){
  const book=[{
- title:
-findDOMNode(this.refs.title).value,
- description:
-findDOMNode(this.refs.description).value,
- price:
-findDOMNode(this.refs.price).value,
+ title: findDOMNode(this.refs.title).value,
+ description: findDOMNode(this.refs.description).value,
+ price: findDOMNode(this.refs.price).value,
  }]
- this.props.getBooks(book);
+ this.props.postBooks(book);
  }
  render(){
  return(
@@ -45,7 +42,7 @@ findDOMNode(this.refs.price).value,
  }
 }
 function mapDispatchToProps(dispatch){
- return bindActionCreators({getBooks},
+ return bindActionCreators({postBooks},
 dispatch)
 }
 export default connect(null,
