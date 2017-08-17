@@ -9564,10 +9564,10 @@ function postBooks(book) {
   };
 }
 // DELETE A BOOK
-function deleteBooks(id) {
+function deleteBooks(_id) {
   return {
     type: "DELETE_BOOK",
-    payload: id
+    payload: _id
   };
 }
 // UPDATE A BOOK
@@ -32558,12 +32558,12 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 function booksReducers() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
     books: [{
-      id: 1,
+      _id: 1,
       title: 'Learn Redux in 24hr',
       description: 'this is the book description',
       price: 43.33
     }, {
-      id: 2,
+      _id: 2,
       title: 'Learn React in 24hr',
       description: 'this is the second book description',
       price: 60
@@ -32586,7 +32586,7 @@ function booksReducers() {
     case "DELETE_BOOK":
       var currentBookToDelete = [].concat(_toConsumableArray(state.books));
       var indexToDelete = currentBookToDelete.findIndex(function (book) {
-        return book.id === action.payload.id;
+        return book._id === action.payload._id;
       });
       return { books: [].concat(_toConsumableArray(currentBookToDelete.slice(0, indexToDelete)), _toConsumableArray(currentBookToDelete.slice(indexToDelete + 1))) };
       break;
@@ -32594,7 +32594,7 @@ function booksReducers() {
     case "UPDATE_BOOK":
       var currentBookToUpdate = [].concat(_toConsumableArray(state.books));
       var indexToUpdate = currentBookToUpdate.findIndex(function (book) {
-        return book.id === action.payload.id;
+        return book._id === action.payload._id;
       });
       var newBookToUpdate = _extends({}, currentBookToUpdate[indexToUpdate], {
         title: action.payload.title
@@ -32621,13 +32621,16 @@ Object.defineProperty(exports, "__esModule", {
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 exports.cartReducers = cartReducers;
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function cartReducers() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { cart: [] };
   var action = arguments[1];
 
   switch (action.type) {
     case "ADD_TO_CART":
-      return _extends({}, state.cart, { cart: action.payload });
+      return { cart: [].concat(_toConsumableArray(state.cart), _toConsumableArray(action.payload)) };
       break;
     case "DELETE_CART_ITEM":
       return _extends({}, state.cart, { cart: action.payload });
@@ -32701,8 +32704,8 @@ var BooksList = function (_React$Component) {
       var booksList = this.props.books.map(function (booksArr) {
         return _react2.default.createElement(
           _reactBootstrap.Col,
-          { xs: 12, sm: 6, md: 4, key: booksArr.id },
-          _react2.default.createElement(_bookItem2.default, { id: booksArr.id, title: booksArr.title,
+          { xs: 12, sm: 6, md: 4, key: booksArr._id },
+          _react2.default.createElement(_bookItem2.default, { _id: booksArr._id, title: booksArr.title,
             description: booksArr.description, price: booksArr.price })
         );
       });
@@ -43800,7 +43803,7 @@ var BookItem = function (_React$Component) {
     key: 'handleCart',
     value: function handleCart() {
       var book = [].concat(_toConsumableArray(this.props.cart), [{
-        id: this.props.id,
+        _id: this.props._id,
         title: this.props.title,
         description: this.props.description,
         price: this.props.price,
@@ -44081,7 +44084,7 @@ var Cart = function (_React$Component) {
       var cartItemsList = this.props.cart.map(function (cartArr) {
         return _react2.default.createElement(
           _reactBootstrap.Panel,
-          { key: cartArr.id },
+          { key: cartArr._id },
           _react2.default.createElement(
             _reactBootstrap.Row,
             null,
