@@ -57,7 +57,7 @@ class Cart extends React.Component{
         <Button onClick={this.onDecrement.bind(this, cartArr._id, cartArr.quantity)} bsStyle="default" bsSize="small">-</Button>
           <Button onClick={this.onIncrement.bind(this, cartArr._id)} bsStyle="default" bsSize="small">+</Button>
   <span> </span>
-            <Button bsStyle="danger" bsSize="small">DELETE</Button>
+            <Button onClick={this.onDelete.bind(this, cartArr._id)} bsStyle="danger" bsSize="small">DELETE</Button>
           </ButtonGroup>
       </Col>
     </Row>
