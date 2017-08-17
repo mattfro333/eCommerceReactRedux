@@ -27,6 +27,18 @@ class Cart extends React.Component{
      this.props.updateCart(_id, -1);
   }
  }
+ constructor(){
+super();
+this.state = {
+showModal:false
+}
+}
+open(){
+this.setState({showModal:true})
+}
+close(){
+this.setState({showModal:false})
+}
   render(){
     if(this.props.cart[0]){
       return this.renderCart();
