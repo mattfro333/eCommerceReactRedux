@@ -96,14 +96,13 @@ onHide={this.close.bind(this)}>
 you!</Modal.Title>
  </Modal.Header>
  <Modal.Body>
- <h6>Your order has been
-saved</h6>
+ <h6>Your order has been saved</h6>
  <p>You will receive an email
 confirmation</p>
  </Modal.Body>
  <Modal.Footer>
  <Col xs={6}>
- <h6>total $:</h6>
+ <h6>total $:{this.props.totalAmount}</h6>
  </Col>
  <Button onClick={this.close.bind(this)}>Close</Button>
  </Modal.Footer>
@@ -114,7 +113,8 @@ confirmation</p>
 }
 function mapStateToProps(state){
  return{
- cart: state.cart.cart
+ cart: state.cart.cart,
+ totalAmount: state.cart.totalAmount
  }
 }
 function mapDispatchToProps(dispatch){
