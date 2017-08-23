@@ -2,7 +2,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {Panel, Col, Row, Well, Button, ButtonGroup, Label} from 'react-bootstrap';
+import {Panel, Col, Row, Well, Button, ButtonGroup, Label, Modal} from 'react-bootstrap';
 import {addToCart, deleteCartItem, updateCart} from '../.././actions/cartActions';
 class Cart extends React.Component{
   onDelete(_id){
