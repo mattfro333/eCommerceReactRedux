@@ -42,6 +42,38 @@ app.post('/books', function(req, res){
  res.json(books);
  })
 });
+app.delete('/books/:_id', function(req, res){
+ var query = {_id: req.params._id};
+ Books.remove(query, function(err, books){
+ if(err){
+ throw err;
+ }
+ res.json(books);
+ })
+});
+//---->>> UPDATE BOOKS <<<------
+app.put('/books/:_id', function(req, res){
+ var book = req.body;
+ var query = req.params._id;
+ // if the field doesn't exist $set will set a new field
+ var update = {
+ '$set':{
+ title:book.title,
+ description:book.description,
+ image:book.image,
+ price:book.price
+ }
+ };
+ // When true returns the updated document
+ var options = {new: true};
+ Books.findOneAndUpdate(query, update,
+options, function(err, books){
+ if(err){
+ throw err;
+ }
+ res.json(books);
+ })
+})
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
  var err = new Error('Not Found');
