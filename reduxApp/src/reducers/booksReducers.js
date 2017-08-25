@@ -1,20 +1,7 @@
 "use strict"
 
 export function booksReducers(state={
-  books:[{
-  _id: 1,
-  title:'Learn Redux in 24hr',
-  description: 'this is the book description',
-  price: 43.33
-  },
-  {
-  _id: 2,
-  title:'Learn React in 24hr',
-  description: 'this is the second book description',
-  price: 60
-
-
-}]
+  books:[]
 }, action){
   switch(action.type){
     case "GET_BOOKs":

@@ -1,7 +1,13 @@
 "use strict"
-export function getBooks(book){
- return {
- type:"GET_BOOK"
+import axios from 'axios';
+// GET A BOOK
+export function getBooks(){
+ return function(dispatch){
+ axios.get("/books").then(function(response){
+ dispatch({type:"GET_BOOKS", payload:response.data})
+ }).catch(function(err){
+ dispatch({type:"GET_BOOKS_REJECTED", payload:err})
+  })
  }
 }
 // POST A BOOK
@@ -15,11 +21,14 @@ export function postBooks(book){
  }
 }
 // DELETE A BOOK
-export function deleteBooks(_id){
- return {
- type:"DELETE_BOOK",
- payload: _id
-}
+export function deleteBooks(id){
+ return function(dispatch){
+ axios.delete("/books/" + id).then(function(response){
+ dispatch({type:"DELETE_BOOK", payload:id})
+ }).catch(function(err){
+dispatch({type:"DELETE_BOOK_REJECTED", payload:err})
+  })
+ }
 }
 // UPDATE A BOOK
 export function updateBooks(book){
