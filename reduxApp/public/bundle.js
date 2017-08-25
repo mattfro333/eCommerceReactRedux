@@ -38648,7 +38648,7 @@ function booksReducers() {
   var action = arguments[1];
 
   switch (action.type) {
-    case "GET_BOOKs":
+    case "GET_BOOKS":
       // let books = state.books.concat(action.payload)
       return _extends({}, state, { books: [].concat(_toConsumableArray(action.payload)) });
       break;

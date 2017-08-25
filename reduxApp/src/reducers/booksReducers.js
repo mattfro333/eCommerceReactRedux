@@ -4,7 +4,7 @@ export function booksReducers(state={
   books:[]
 }, action){
   switch(action.type){
-    case "GET_BOOKs":
+    case "GET_BOOKS":
     // let books = state.books.concat(action.payload)
     return {...state, books:[...action.payload]}
       break;
