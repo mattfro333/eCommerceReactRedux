@@ -46,8 +46,7 @@ app.delete('/books/:_id', function(req, res){
 app.put('/books/:_id', function(req, res){
  var book = req.body;
  var query = req.params._id;
- // if the field doesn't exist $set will set
-a new field
+ // if the field doesn't exist $set will set a new field
  var update = {
  '$set':{
  title:book.title,
@@ -67,13 +66,12 @@ options, function(err, books){
  })
 })
 promise.then(function(db) {
-
+Books
 });
 // END APIs
 app.listen(3001, function(err){
  if(err){
  return console.log(err);
  }
- console.log('API Sever is listening on
-http://localhost:3001');
+ console.log('API Server is listening on 3001');
 });
