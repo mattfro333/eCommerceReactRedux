@@ -9,7 +9,8 @@ app.use(logger('dev'));
 //PROXY TO API
 const apiProxy =
 httpProxy.createProxyServer({
- target:"http://localhost:3001"
+ target:"http://localhost:3001",
+ changeOrigin: true
 });
 app.use('/api', function(req, res){
  apiProxy.web(req, res);
@@ -19,8 +20,7 @@ app.use('/api', function(req, res){
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname,
 'public')));
-app.get('*'
-, function(req, res){
+app.get('*', function(req, res){
  res.sendFile(path.resolve(__dirname,
 'public', 'index.html'))
 })
