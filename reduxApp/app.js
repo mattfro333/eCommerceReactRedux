@@ -12,7 +12,7 @@ httpProxy.createProxyServer({
  target:"http://localhost:3001",
  changeOrigin: true
 });
-app.use('/api', function(req, res){
+app.use('/books', function(req, res){
  apiProxy.web(req, res);
 })
 // END PROXY
