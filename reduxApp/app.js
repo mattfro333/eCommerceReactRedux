@@ -7,14 +7,15 @@ var httpProxy = require('http-proxy');
 var app = express();
 app.use(logger('dev'));
 //PROXY TO API
-const apiProxy =
-httpProxy.createProxyServer({
- target:"http://localhost:3001",
- changeOrigin: true
+var proxy = httpProxy.createProxyServer(options);
+
+http.createProxyServer({});
+app.use('', function(req, res){
+ proxy.web(req, res, {
+    target: 'http://' + 'localhost' + ':' + '3001' ,
+    changeOrigin: true
 });
-app.use('/books', function(req, res){
- apiProxy.web(req, res);
-})
+});
 // END PROXY
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
