@@ -17,7 +17,7 @@ const middleware = applyMiddleware(thunk, logger);
 const store = createStore(reducers, middleware);
 
 import BooksList from './components/pages/bookslist';
-import Cart from './components/pages/cart';
+import Cart from './components/pages/cart.js';
 import BooksForm from './components/pages/booksForm';
 import Main from './main';
 const Routes = (
@@ -26,10 +26,8 @@ const Routes = (
  <Route path="/" component={Main}>
  <IndexRoute
 component={BooksList}/>
- <Route path="/admin"
-component={BooksForm}/>
- <Route path="/cart"
-component={Cart}/>
+ <Route path="/" component={Main}/>
+ <Route path="/" component={Main}/>
  </Route>
  </Router>
  </Provider>
