@@ -17,7 +17,7 @@ const middleware = applyMiddleware(thunk, logger);
 const store = createStore(reducers, middleware);
 
 import BooksList from './components/pages/bookslist';
-import Cart from './components/pages/cart.js';
+import Cart from './components/pages/cart';
 import BooksForm from './components/pages/booksForm';
 import Main from './main';
 const Routes = (
