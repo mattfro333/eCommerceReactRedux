@@ -21,7 +21,7 @@
     "express-session": "^1.15.5",
     "http-proxy": "^1.16.2",
     "jade": "^1.11.0",
-    "mongoose": "^4.11.8",
+    "mongoose": "^5.7.5",
     "morgan": "^1.7.0",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.2",
