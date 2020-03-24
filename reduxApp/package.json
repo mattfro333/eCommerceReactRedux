@@ -7,6 +7,7 @@
     "start": "node apiServer.js"
   },
   "dependencies": {
+    "acorn": "^5.7.4",
     "axios": "^0.19.2",
     "babel-core": "^6.26.0",
     "babel-loader": "^6.4.1",
