@@ -8,9 +8,10 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var mongoose = require('mongoose');
-var promise = mongoose.connect('mongodb://localhost:27017/books', {
-useMongoClient: true,
-});
+var promise = mongoose.connect('mongodb://localhost:27017/books',
+{ useUnifiedTopology: true,
+  useNewUrlParser: true  }
+);
 Books = require('./models/books.js');
 var app = express();
 // view engine setup
