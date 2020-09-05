@@ -22,7 +22,7 @@
     "debug": "^2.6.9",
     "express": "^4.15.4",
     "express-session": "^1.15.5",
-    "http-proxy": "^1.16.2",
+    "http-proxy": "^1.18.1",
     "jade": "^1.11.0",
     "kind-of": "^6.0.3",
     "mem": "^4.0.0",
